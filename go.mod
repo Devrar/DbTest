@@ -1,3 +1,3 @@
-module example.com/Devrar/DbTest
+module github.com/Devrar/DbTest
 
 go 1.14
