@@ -3,11 +3,10 @@ package database
 import (
 	"database/sql"
 	"errors"
-	"fmt"
 )
 
-func OpenDB(user string, password string) (db *sql.DB, err error) {
-	db, err = sql.Open("mysql", user+":"+password+"@/test")
+func OpenDB(user string, password string, name string) (db *sql.DB, err error) {
+	db, err = sql.Open("mysql", user+":"+password+"@/"+name)
 
 	return db, err
 }
@@ -39,8 +38,6 @@ func InsQuery(db *sql.DB, table string, columns []string, values []string) error
 			query += " (\"" + value + "\");"
 		}
 	}
-
-	fmt.Println(query)
 
 	insert, err := db.Query(query)
 
